@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -38,7 +38,7 @@ const Loginformik = () => {
                     alert(JSON.stringify(values, null, 2));
                     // We save the data in the localstorage
                     await localStorage.setItem('credentials', values);
-                    history.push('/profile');
+                    history.push('/');
                 }}
             >
                 {/* We obtain props from Formik */}
@@ -77,6 +77,7 @@ const Loginformik = () => {
                             }
                             <button type="submit">Login</button>
                             {isSubmitting ? (<p>Login your credentials...</p>): null}
+                            <p>No have account? <Link to="/register" >Register</Link></p>
                         </Form>
                 )}
             </Formik>

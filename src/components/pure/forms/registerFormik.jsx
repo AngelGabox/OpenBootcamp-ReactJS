@@ -1,14 +1,15 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Link, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 
 // Models
 import { ROLES } from '../../../models/roles.enum';
-import { User } from '../../../models/user.class';
+import { User } from '../../../models/user.class';;
 
-const Registerformik = () => {
+const Registerformik = async() => {
 
-    let user = new User();
+    const history = useHistory()
 
     const initialValues = {
         username: '',
@@ -44,10 +45,6 @@ const Registerformik = () => {
         }
     )
 
-    const submit = (values) => {
-        alert('Register user')
-    }
-
     return (
         <div>
             <h4>Register Formik</h4>
@@ -59,6 +56,8 @@ const Registerformik = () => {
                 onSubmit={async (values) => {
                     await new Promise((r) => setTimeout(r, 1000));
                     alert(JSON.stringify(values, null, 2))
+                    await localStorage.setItem('credentials', values);
+                    history.push('/');
                 }}
             >
 
@@ -123,7 +122,7 @@ const Registerformik = () => {
 
                             <button type="submit">Register Account</button>
                             {isSubmitting ? (<p>Sending your credentials...</p>): null}
-
+                            <p>Have an account already? <Link to="/login" >Login</Link></p>
                         </Form>
                     )
             }
