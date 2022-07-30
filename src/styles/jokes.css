@@ -1,0 +1,49 @@
+.container {
+    position: relative;
+    margin-top: 10px;
+    padding: 10px;
+    min-width: 40vw;
+    max-width: 70vw;
+    min-height: 40vh;
+    max-height: 70vh;
+    background: rgb(0, 0, 0) ;
+}
+.container:nth-child(1){
+    min-height: 79%;
+    max-height: 80%;
+}
+.container h1 {
+    color: #333333;
+}
+.container footer {
+    margin-top: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.container footer div  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+footer p {
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+.container_like p
+{
+    color: #1972d2;
+}
+.container_dislike p
+{
+    color: #d21972;
+}
+.container footer button:hover{
+    background: rgba(255, 255, 255, 0.15);
+}
